@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Us</title>
+        <meta name="description" content="Contact the Three Kingdoms project team for questions, feedback, or collaboration. Connect with us to discuss history, design, or future updates.">
+        <meta name="keywords" content="contact Three Kingdoms, Three Kingdoms website, feedback, collaboration, historical project, contact form">
+        <meta name="author" content="Ross McKenna">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="images/sanguo_icon.png">
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <h1>Three Kingdoms</h1>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="characters.html">Characters</a></li>
+                        <li><a href="battles.html">Battles</a></li>
+                        <li><a href="map.html">Map</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+            </nav>
+        </header>
+
+        <main class="contact-page">
+            <section class="contact-container">
+                <h1>Contact Us</h1>
+                <p>Have a question, suggestion, or collaboration idea? Get in touch using the form below.</p>
+                <form class="contact-form" id="contact-form" action="submit_form.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="+353 87 123 4567"
+                        pattern="(\+353|0)\s?\d{1,2}\s?\d{3}\s?\d{4}"
+                        title="Enter a valid Irish phone number (e.g. +353 87 123 4567)"
+                    > <!-- regex for Irish phone numbers starting with +353 OR 0 (\+353|0), optionally separated by spaces (\s?), \d{1,2} allows 1 or 2 digits, \s?\d{3}\s?\d{4} allows 3 digits, optional space(\s?) and four digits -->
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Street address, town/city" required>
+                </div>
+                <div class="form-group">
+                    <label for="eircode">Eircode</label>
+                    <input
+                    type="text"
+                    id="eircode"
+                    name="eircode"
+                    placeholder="e.g. D02 X285"
+                    pattern="[A-Za-z0-9]{3}\s?[A-Za-z0-9]{4}"
+                    title="Enter a valid Irish Eircode (e.g. D02 X285)"
+                    required
+                    > <!-- regex for Irish Eircodes, [A-Za-z0-9]{3} matches the 3-character prefix, \s? allows optional space, [A-Za-z0-9]{4} allows 4-character suffix -->
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+                </form>
+        
+                <p id="thank-you-message" style="display:none; color:green; margin-top:1rem;">
+                    Thank you for your message! We’ll get back to you shortly.
+                </p>
+            </section>
+
+            <script src="contact.js"></script>
+        </main>
+
+        <footer>
+            <p>2025, Ross McKenna</p>
+        </footer>
+    </body>

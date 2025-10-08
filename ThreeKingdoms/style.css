@@ -1,0 +1,937 @@
+/*   
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+*/
+
+/* ===== General Page Styles ===== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0 1.5rem;
+  line-height: 1.6;
+  background-color: #fdf6e3;
+  color: #333;
+}
+
+header {
+  position: fixed; /* sticky at top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  z-index: 1000; /* keep above other content */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, menu right */
+  padding: 0.75rem 2rem;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 4px;
+}
+
+nav ul li a:hover {
+  background-color: #fff;
+  color: #222;
+}
+
+main {
+  padding-top: 80px; /* adjust based on header height */
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== Home Page ===== */
+#intro {
+  background-color: #f0f0f0;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+#intro .intro-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#intro p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.intro-image-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 6px;  /* border thickness */
+    width: 200px;
+    height: 200px;
+    overflow: visible;
+    background: radial-gradient(circle, rgba(173,216,230,0.9) 40%, rgba(173,216,230,0.3) 70%, rgba(173,216,230,0) 100%);
+    box-shadow:
+        0 0 20px rgba(173, 216, 230, 0.5),
+        0 0 40px rgba(173, 216, 230, 0.35),
+        0 0 60px rgba(173, 216, 230, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect: radiant glow */
+.intro-image-wrapper:hover {
+    background: radial-gradient(circle, rgba(173,216,255,1) 35%, rgba(173,216,255,0.5) 65%, rgba(173,216,255,0) 100%);
+    box-shadow:
+        0 0 30px rgba(173, 216, 255, 0.7),
+        0 0 60px rgba(173, 216, 255, 0.5),
+        0 0 90px rgba(173, 216, 255, 0.35),
+        0 0 120px rgba(173, 216, 255, 0.2);
+    transform: scale(1.05); /* subtle pop effect */
+}
+
+.intro-image-wrapper img {
+    width: 200px; /* image size inside wrapper */
+    height: auto;
+    border-radius: 50%;
+    margin: 0;
+}
+
+#intro .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+#intro .btn:hover {
+  background-color: #555;
+}
+
+.section-divider {
+    width: 90%;
+    height: 2px;
+    background-color: #555;
+    border: none;
+    margin: 2rem auto 0;
+}
+
+.home-section {
+    max-width: 900px;
+    margin: 2rem auto 3rem;
+    padding: 0 1rem; /* some horizontal padding for small screens */
+    text-align: center;
+}
+
+.home-section h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.home-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6; /* improve readability */
+    font-size: 1.1rem;
+}
+
+.home-section a:not(.kingdom-links a) {
+    display: inline-block; /* like a button */
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: #333; 
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-family: 'Zhi Mang Xing', cursive;
+}
+
+.home-section a:not(.kingdom-links a):hover {
+    background-color: #555;
+}
+
+.kingdom-links {
+  display: flex;
+  gap: 1.5rem; /* space between each link */
+  justify-content: center;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.kingdom-links a {
+    text-decoration: none; /* remove underline */
+    color: inherit; /* use color of parent */
+    display: inline-block;
+    text-align: center;
+    flex-direction: column; /* stack image above text */
+    align-items: center;
+    gap: 0.25rem; /* space between image and text */
+    transition: color 0.3s; /* smooth hover color change */
+}
+
+/* Hover colors per kingdom */
+.kingdom-links a.caowei:hover {
+    color: #3366cc; /* blue for Wei */
+}
+
+.kingdom-links a.shuhan:hover {
+    color: #009933; /* green for Shu */
+}
+
+.kingdom-links a.dongwu:hover {
+    color: #ff3333; /* red for Wu */
+}
+
+.kingdom-links a.jin:hover {
+    color: #9933ff; /* purple for Jin */
+}
+
+.kingdom-links a.others:hover {
+    color: #ff9900; /* gold/orange for Other */
+}
+
+.kingdom-links a img {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* Hover glows */
+a.caowei:hover img {
+  box-shadow: 0 0 15px #003366, 0 0 30px #00336680;
+  transform: scale(1.05);
+}
+
+a.shuhan:hover img {
+  box-shadow: 0 0 15px #006400, 0 0 30px #00640080;
+  transform: scale(1.05);
+}
+
+a.dongwu:hover img {
+  box-shadow: 0 0 15px #8b0000, 0 0 30px #8b000080;
+  transform: scale(1.05);
+}
+
+a.jin:hover img {
+  box-shadow: 0 0 15px #4b0082, 0 0 30px #4b008280;
+  transform: scale(1.05);
+}
+
+a.others:hover img {
+  box-shadow: 0 0 15px #ff9900, 0 0 30px #ff990080;
+  transform: scale(1.05);
+}
+
+/* ===== History page =====*/
+.history-page {
+    max-width: 900px;
+    margin: 2rem auto 0 auto; /* 2rem top margin, auto left/right, 0 bottom */
+    padding: 2rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #222;
+}
+
+.history-page h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.history-page p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.history-page figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.history-page figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.history-page figcaption {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Image wrappers */
+
+/* Single, double, triple image containers */
+.history-image-single,
+.two-images,
+.three-brothers {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* allow stacking on smaller screens */
+    margin: 2rem 0;
+}
+
+/* Magnify link styling */
+a.magnify {
+    display: block;
+    overflow: hidden; /* hide overflow when image scales */
+    text-align: center; /* caption centered under image */
+    cursor: zoom-in; /* hint for zoomable image */
+    text-decoration: none;
+    border-radius: 8px; /* rounded corners */
+}
+
+/* Images inside magnify links */
+a.magnify img {
+    display: block;
+    max-width: 100%; /* fill container width */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+a.magnify:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Image captions */
+    a.magnify figcaption {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Single images ~50% of max container width */
+.history-image-single a.magnify {
+    max-width: 50%;
+}
+
+/* Two images side by side ~45% each */
+.two-images a.magnify {
+    max-width: 45%;
+}
+
+/* Three images side by side ~32% each */
+.three-brothers a.magnify {
+    max-width: 32%;
+}
+
+p.three-brothers-caption {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    font-style: italic;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+/* ===== Character page =====*/
+/* Flip cards, scrollable back */
+.flip-card-container {
+  display: flex;
+  flex-wrap: nowrap; /* keep in one row */
+  gap: 2rem;
+  overflow-x: auto; /* horizontal scrolling */
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.flip-card-container .flip-card {
+  flex: 0 0 auto; /* prevents shrinking and wrapping */
+  scroll-snap-align: start;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-y: hidden; /* front doesn't scroll */
+}
+
+/* horizontal scrollbar for flip-card rows */
+.flip-card-container::-webkit-scrollbar {
+  height: 8px;  /* slim bar */
+}
+
+.flip-card-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.flip-card-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}
+
+.flip-card-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* back is scrollable for long bios */
+.flip-card-back {
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+/* custom scrollbar */
+.flip-card-back::-webkit-scrollbar {
+  width: 6px;
+}
+
+.flip-card-back::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 3px;
+}
+
+.flip-card-back::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+
+/* flip cards by dynasty, colors & borders */
+/* Main three dynasties: gold border */
+.flip-card.caowei {
+  border: 3px solid gold;
+  border-radius: 12px;
+}
+.flip-card.shuhan {
+  border: 3px solid gold;
+  border-radius: 12px;
+}
+.flip-card.dongwu {
+  border: 3px solid gold;
+  border-radius: 12px;
+}
+
+/* Secondary dynasties: silver/white border */
+.flip-card.jin {
+  border: 3px solid silver;
+  border-radius: 12px;
+}
+.flip-card.other {
+  border: 3px solid #fff;
+  border-radius: 12px;
+}
+
+.flip-card.caowei .flip-card-front { background-color: #003366; color: #fff} /* deep blue front */
+.flip-card.caowei .flip-card-back { background-color: #99c2ff; color: #000} /* pastel blue back */
+
+.flip-card.shuhan .flip-card-front { background-color: #006400; color: #fff} /* dark green front */
+.flip-card.shuhan .flip-card-back { background-color: #a3d9a5; color: #000} /* pastel green back */
+
+.flip-card.dongwu .flip-card-front { background-color: #8b0000; color: #fff} /* dark red front */
+.flip-card.dongwu .flip-card-back { background-color: #f4a6a6; color: #000} /* pastel red back */
+
+.flip-card.jin .flip-card-front { background-color: #4b0082; color: #fff} /* deep purple front */
+.flip-card.jin .flip-card-back { background-color: #c8b1e0; color: #000} /* pastel purple back */
+
+.flip-card.other .flip-card-front { background-color: #888888; color: #000} /* deep grey front */
+.flip-card.other .flip-card-back { background-color: #e0e0e0; color: #000} /* light grey back */
+
+.card-img {
+    width: 66%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.leader-img {
+  border: 3px solid gold;
+  box-shadow: 0 0 10px rgba(255,215,0,0.7);
+  border-radius: 6px;
+}
+
+/* ===== Timeline / Battles Page ===== */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.timeline-node {
+    border-left: 3px solid #333; /* vertical timeline line */
+    padding-left: 1rem;
+    position: relative;
+}
+
+.timeline-node::before {
+    content: '';
+    position: absolute;
+    left: -7px; /* half of dot size */
+    top: 0.5rem;
+    width: 14px;
+    height: 14px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.timeline-header {
+    position: relative; /* needed for title centering */
+    display: flex; /* layout children */
+    align-items: center;
+    justify-content: space-between; /* year left, button right */
+    background-color: #f4f4f4; /* header box color */
+    border-radius: 6px; /* rounded corners */
+    padding: 0.5rem 1rem; /* space inside box */
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.timeline-year {
+    flex: 0 0 auto; /* keeps year on left */
+    z-index: 2; /* above absolute title */
+}
+
+.timeline-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+.timeline-toggle {
+    flex: 0 0 auto; /* keeps button on right */
+    z-index: 2;
+}
+
+.timeline-content {
+    display: none; /* hidden by default */
+    padding: 1rem;
+    background-color: hsl(44, 87%, 96%);
+    border-radius: 0 0 6px 6px; /* rounded bottom corners to match header */
+    margin-bottom: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* inner shading */
+}
+
+.timeline-key-figures {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 0.5rem 0;
+}
+
+.timeline-side {
+    width: 48%;
+    background-color: rgba(0,0,0,0.02);
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.timeline-side h4 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Heading fonts  */
+h1, h2, h3, li {
+    font-family: 'Zhi Mang Xing', cursive;
+}
+
+/* ===== Home Page Map Teaser ===== */
+#home-map {
+  background-color: #f4f4f4; /* highlight */
+  font-family: 'Zhi Mang Xing', cursive;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+#home-map h2 {
+  margin-bottom: 1rem;
+}
+
+#home-map p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+#home-map a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#home-map a:hover {
+  background-color: #555;
+}
+
+/* ===== Shop Page =====*/
+/* Shop page layout */
+.shop-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem 2rem;
+    text-align: center;
+}
+
+.shop-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Shop item grid */
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Individual item */
+.shop-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    width: 250px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Item images */
+.shop-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+/* Item text/description */
+.shop-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-item p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Item price/action buttons */
+.shop-item .price {
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: #222;
+}
+
+.shop-item button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #0074D9;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.shop-item button:hover {
+    background: #005fa3;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .shop-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .shop-item {
+        width: 90%;
+    }
+}
+
+.shop-item .price {
+  display: block;
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.shop-item .add-to-cart {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.15s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.95rem;
+  font-family: 'Zhi Mang Xing', cursive;
+  margin-top: auto;
+}
+
+.shop-item .add-to-cart:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+.shop-item .add-to-cart:active {
+  transform: translateY(0);
+}
+
+#cart {
+    position: fixed;
+    top: 80px; /* adjust for nav bar */
+    right: 1rem;
+    width: 250px;
+    max-height: 70vh; /* fixed height relative to viewport */
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    overflow-y: auto; /* enables scrolling when content exceeds max-height */
+    flex-grow: 1; /* allow the list to expand and push checkout to bottom */
+}
+
+#cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* vertically center buttons/text */
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    word-break: break-word; /* prevent long names from overflowing */
+}
+
+#checkout-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.15s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.95rem;
+    font-family: 'Zhi Mang Xing', cursive;
+    margin-top: 1rem;
+    width: 100%; /* full width for consistency */
+    box-sizing: border-box;
+}
+
+#checkout-btn:hover {
+    background-color: #555;
+    transform: translateY(-1px);
+}
+
+.remove-item-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.15s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: 'Zhi Mang Xing', cursive;
+    flex-shrink: 0; /* prevents button from shrinking */
+}
+
+.remove-item-btn:hover {
+    background-color: #555;
+    transform: translateY(-1px);
+}
+
+/* ===== Contact Page ===== */
+.contact-page {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem; /* increased top padding */
+  background-color: hsl(44, 87%, 96%);
+}
+
+.contact-container {
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.contact-container p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2.5rem; /* adds space above form */
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.25rem; /* tightened slightly to keep balance */
+}
+
+.contact-form input#eircode {
+  max-width: 200px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #d4a017;
+  outline: none;
+}
+
+.contact-form .btn {
+  display: block;
+  width: 100%;
+  background-color: #d4a017;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background-color: #b38712;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  font-family: 'Zhi Mang Xing', cursive;
+}
