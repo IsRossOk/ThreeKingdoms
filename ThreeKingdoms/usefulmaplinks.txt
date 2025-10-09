@@ -1,0 +1,5 @@
+https://kongming.net/map/images/full/map-1-china-simple-zhao-dadudu.png --source
+
+https://kongming.net/map/ --provinces
+
+https://heliog3nesis.github.io/Threekingdoms_Archive/maps/Overall_detailed.png --amazing detail

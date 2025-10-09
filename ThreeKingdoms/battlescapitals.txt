@@ -1,0 +1,20 @@
+Luoyang			DONE	Henan
+Chengdu			DONE	Shu
+Wuchang			DONE	Jiangxia (Wuhan)
+Jianye			DONE	Danyang (Jiankang)
+Ye			DONE	Wei
+Xiangping		DONE	Liaodong
+
+Xuchang			DONE	Yingchuan
+Xiangyang		DONE	Xiangyang(below)
+Guandu			DONE	Henan
+Bowang			DONE	Xiangyang
+Changban		DONE	Nan
+Chibi			DONE	Jiangxia
+Tong Pass		DONE	Hongnong
+Hanzhong/Dingjun	DONE	Hangzhong
+Fancheng		DONE	Xiangyang(above)
+Xiaoyao Ford		DONE	Huainan(right)
+Xiaoting(Yiling)	DONE	Yidu
+Wuzhang			DONE	Fufeng
+Hefei			DONE	Huainan(left)
