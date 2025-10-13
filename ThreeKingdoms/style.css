@@ -292,6 +292,11 @@ a.others:hover img {
   background-color: #555;
 }
 
+/* Heading fonts  */
+h1, h2, h3, li {
+    font-family: 'Zhi Mang Xing', cursive;
+}
+
 /* ===== History page =====*/
 .history-page {
     max-width: 900px;
@@ -402,6 +407,42 @@ p.three-brothers-caption {
     font-style: italic;
     margin-top: 0.5rem;
     line-height: 1.4;
+}
+
+a.map-link {
+    display: block;
+    overflow: hidden; /* hide overflow when image scales */
+    text-align: center; /* caption centered under image */
+    text-decoration: none;
+    border-radius: 8px; /* rounded corners */
+}
+
+a.map-link img {
+    display: block;
+    max-width: 100%; /* fill container width */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+a.map-link:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Image captions */
+    a.map-link figcaption {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Single images ~50% of max container width */
+.history-image-single a.map-link {
+    max-width: 50%;
 }
 
 /* ===== Character page =====*/
@@ -634,11 +675,6 @@ p.three-brothers-caption {
     color: #333;
 }
 
-/* Heading fonts  */
-h1, h2, h3, li {
-    font-family: 'Zhi Mang Xing', cursive;
-}
-
 /* ===== Map Page =====*/
 #map {
   text-align: center;
@@ -646,17 +682,14 @@ h1, h2, h3, li {
 }
 
 .map-container-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.map-container {
   position: relative;
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
+  z-index: 0;
 }
 
-.map-container img {
+.map-container-wrapper img {
   width: 100%;
   height: auto;
   display: block;
@@ -666,18 +699,19 @@ h1, h2, h3, li {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: rgb(255, 255, 255, 0.6);
+  background-color: rgb(255, 255, 255, 0.8);
   border: 2px solid #000;
   border-radius: 50%;
-  transform: translate(-50%, -50%); /* centers circle */
+  transform: translate(-50%, -50%);
   cursor: pointer;
+  z-index: 50;
 }
 
 /* Tooltip styling */
 .map-marker::after {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: 125%;  /* place above marker */
+  bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #222;
@@ -689,6 +723,7 @@ h1, h2, h3, li {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
+  z-index: 1000;
 }
 
 .map-marker:hover::after {
@@ -699,17 +734,18 @@ h1, h2, h3, li {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: rgba(255, 39, 39, 0.6);
+  background-color: rgba(255, 39, 39, 0.8);
   border: 2px solid #fff;
   border-radius: 50%;
-  transform: translate(-50%, -50%); /* centers circle */
+  transform: translate(-50%, -50%);
   cursor: pointer;
+  z-index: 50;
 }
 
 .capital-marker::after {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: 125%;  /* place above marker */
+  bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #222;
@@ -721,6 +757,7 @@ h1, h2, h3, li {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
+  z-index: 1000;
 }
 
 .capital-marker:hover::after {
