@@ -1,13 +1,6 @@
-/*   
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
-*/
-
 /* ===== General Page Styles ===== */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0 1.5rem;
   line-height: 1.6;
@@ -69,6 +62,15 @@ h2 {
   margin-bottom: 1rem;
 }
 
+/* Heading fonts  */
+h1, h2, h3, h4, li {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.btn {
+  font-family: 'Comic Sans MS', cursive;
+}
+
 /* ===== Home Page ===== */
 #intro {
   background-color: #f0f0f0;
@@ -120,7 +122,7 @@ h2 {
         0 0 60px rgba(173, 216, 255, 0.5),
         0 0 90px rgba(173, 216, 255, 0.35),
         0 0 120px rgba(173, 216, 255, 0.2);
-    transform: scale(1.05); /* subtle pop effect */
+    transform: scale(1.05);
 }
 
 .intro-image-wrapper img {
@@ -178,7 +180,7 @@ h2 {
     background-color: #333; 
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    font-family: 'Zhi Mang Xing', cursive;
+    font-family: 'Comic Sans MS', cursive;;
 }
 
 .home-section a:not(.kingdom-links a):hover {
@@ -195,7 +197,7 @@ h2 {
 }
 
 .kingdom-links a {
-    text-decoration: none; /* remove underline */
+    text-decoration: none;
     color: inherit; /* use color of parent */
     display: inline-block;
     text-align: center;
@@ -292,17 +294,11 @@ a.others:hover img {
   background-color: #555;
 }
 
-/* Heading fonts  */
-h1, h2, h3, li {
-    font-family: 'Zhi Mang Xing', cursive;
-}
-
 /* ===== History page =====*/
 .history-page {
     max-width: 900px;
     margin: 2rem auto 0 auto; /* 2rem top margin, auto left/right, 0 bottom */
     padding: 2rem;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #222;
 }
@@ -339,7 +335,6 @@ h1, h2, h3, li {
 }
 
 /* Image wrappers */
-
 /* Single, double, triple image containers */
 .history-image-single,
 .two-images,
@@ -355,7 +350,7 @@ h1, h2, h3, li {
 a.magnify {
     display: block;
     overflow: hidden; /* hide overflow when image scales */
-    text-align: center; /* caption centered under image */
+    text-align: center;
     cursor: zoom-in; /* hint for zoomable image */
     text-decoration: none;
     border-radius: 8px; /* rounded corners */
@@ -480,7 +475,8 @@ a.map-link:hover img {
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -538,14 +534,8 @@ a.map-link:hover img {
 
 /* flip cards by dynasty, colors & borders */
 /* Main three dynasties: gold border */
-.flip-card.caowei {
-  border: 3px solid gold;
-  border-radius: 12px;
-}
-.flip-card.shuhan {
-  border: 3px solid gold;
-  border-radius: 12px;
-}
+.flip-card.caowei,
+.flip-card.shuhan,
 .flip-card.dongwu {
   border: 3px solid gold;
   border-radius: 12px;
@@ -599,7 +589,7 @@ a.map-link:hover img {
 }
 
 .timeline-node {
-    border-left: 3px solid #333; /* vertical timeline line */
+    border-left: 3px solid #333; /* vertical timeline */
     padding-left: 1rem;
     position: relative;
 }
@@ -621,10 +611,11 @@ a.map-link:hover img {
     align-items: center;
     justify-content: space-between; /* year left, button right */
     background-color: #f4f4f4; /* header box color */
-    border-radius: 6px; /* rounded corners */
-    padding: 0.5rem 1rem; /* space inside box */
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
     margin-bottom: 0.5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .timeline-year {
@@ -708,40 +699,7 @@ a.map-link:hover img {
 }
 
 /* Tooltip styling */
-.map-marker::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #222;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-  font-size: 0.9rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-  z-index: 1000;
-}
-
-.map-marker:hover::after {
-  opacity: 1;
-}
-
-.capital-marker {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: rgba(255, 39, 39, 0.8);
-  border: 2px solid #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  z-index: 50;
-}
-
+.map-marker::after,
 .capital-marker::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -760,8 +718,21 @@ a.map-link:hover img {
   z-index: 1000;
 }
 
+.map-marker:hover::after,
 .capital-marker:hover::after {
   opacity: 1;
+}
+
+.capital-marker {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 39, 39, 0.8);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 50;
 }
 
 .map-caption {
@@ -833,12 +804,6 @@ a.map-link:hover img {
 }
 
 /* Item price/action buttons */
-.shop-item .price {
-    font-weight: bold;
-    margin-bottom: 0.75rem;
-    color: #222;
-}
-
 .shop-item button {
     padding: 0.5rem 1rem;
     border: none;
@@ -886,8 +851,8 @@ a.map-link:hover img {
   border: none;
   cursor: pointer;
   text-align: center;
-  font-size: 0.95rem;
-  font-family: 'Zhi Mang Xing', cursive;
+  font-size: 1rem;
+  font-family: 'Comic Sans MS', cursive;
   margin-top: auto;
 }
 
@@ -944,8 +909,8 @@ a.map-link:hover img {
     border: none;
     cursor: pointer;
     text-align: center;
-    font-size: 0.95rem;
-    font-family: 'Zhi Mang Xing', cursive;
+    font-size: 1rem;
+    font-family: 'Comic Sans MS', cursive;
     margin-top: 1rem;
     width: 100%; /* full width for consistency */
     box-sizing: border-box;
@@ -968,7 +933,7 @@ a.map-link:hover img {
     cursor: pointer;
     text-align: center;
     font-size: 0.9rem;
-    font-family: 'Zhi Mang Xing', cursive;
+    font-family: 'Comic Sans MS', cursive;
     flex-shrink: 0; /* prevents button from shrinking */
 }
 
@@ -1060,8 +1025,4 @@ footer {
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
-}
-
-.btn {
-  font-family: 'Zhi Mang Xing', cursive;
 }
